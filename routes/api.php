@@ -19,9 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('activity-service/v1')->group(function (Request $request) {
+Route::prefix('activity-service/v1')->group(function () {
     Route::controller(ActivityController::class)->group(function () {
-        Route::get('/orders/{id}', 'show');
-        Route::post('/orders', 'store');
+        Route::post('/activities', 'store');
     });
 });
